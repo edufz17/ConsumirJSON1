@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Portátil</h1>
+    <form action="">
+        <p><label for="marca">Marca
+                <input type="text" name="marca" id="marca">
+            </label></p>
+
+        <p><label for="procesador">Procesador
+                <input type="text" name="procesador" id="procesador">
+            </label></p>
+
+        <p><label for="grafica">Tarjeta Gráfica
+                <input type="text" name="grafica" id="grafica">
+            </label></p>
+
+
+        <p><label for="ram">RAM:
+                <input type="text" name="ram" id="ram">
+            </label></p>
+
+
+        <p><label for="disco">Tamaño del disco duro:
+                <select id="disco" name="disco">
+                    <option value="500">500 GB</option>
+                    <option value="1">1 TB</option>
+                    <option value="2">2 TB</option>
+                </select>
+            </label></p>
+
+        <p><label for="ssd">¿Es SSD?
+                <input type="checkbox" name="ssd" id="ssd">
+            </label></p>
+    </form>
+
+
+    <script>
+        fetch("Portatil.json")
+            .then(Response => Response.json())
+            .then(portatil => {
+                document.getElementById("marca").value = portatil.marca;
+                document.getElementById("procesador").value = portatil.procesador;
+                document.getElementById("grafica").value = portatil.tarjetaGrafica;
+                document.getElementById("ram").value = portatil.ram;
+                if (portatil.almacenamiento.ssd) {
+                    document.getElementById("ssd").setAttribute("checked", "checked");
+                }
+                document.getElementById("disco").value = portatil.almacenamiento.tamaño;
+            })
+
+
+    </script>
+</body>
+
+</html>
