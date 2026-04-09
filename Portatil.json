@@ -1,0 +1,10 @@
+{
+    "marca": "MSI",
+    "procesador": "Intel Core Ultra 9 285HX",
+    "tarjetaGrafica": "GeForce RTX™ 5080",
+    "ram": "32GB (16GB*2, DDR5-5600)",
+    "almacenamiento": {
+        "tamaño": 500,
+        "ssd": true
+    }
+}
